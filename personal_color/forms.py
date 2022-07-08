@@ -1,8 +1,9 @@
+from cProfile import label
 import os
 from django import forms
 from .models import Sample
 from django.core.mail import EmailMessage
-
+from django.db import models
 
 class InquiryForm(forms.Form):
     CHOICE = {
@@ -53,6 +54,22 @@ class InquiryForm(forms.Form):
 
 
 class ImgForm(forms.ModelForm):
+    # id = models.IntegerField()
+    # color_id = models.IntegerField()
+    # sex = models.IntegerField()
+    # name = models.CharField(max_length=20)
+    # explanaion = models.CharField(max_length=100)
+    # price = models.IntegerField()
+    # size = models.ImageField()
+    # maker =  models.CharField(max_length=20)
+
+
     class Meta:
         model = Sample
-        fields = ('img',)
+        fields = ('img','id','color_id',
+        'sex','name','explanaion','price',
+        'size','maker')
+        labels = {'id':'ID',
+        'color_id':'color_id','sex':'性別',
+        'name':'名前','explanaion':'商品説明',
+        'price':'値段','size':'サイズ','maker':'メーカー'}

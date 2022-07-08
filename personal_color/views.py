@@ -82,3 +82,6 @@ class LogoutView(generic.TemplateView):
 
 class MembersView(generic.TemplateView):
     template_name = "members.html"
+
+class ResultView(generic.TemplateView):
+    template_name = "result.html"
